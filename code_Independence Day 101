@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Input for the number of test cases
+    int T;
+    cout << "Enter number of test cases: ";
+    cin >> T;
+    
+    // Handle a single test case
+    int A, B, C;
+    cin >> A >> B >> C;
+    
+    // Manually find the maximum number of strips of a single color
+    int max_strips;
+    if (A >= B && A >= C) {
+        max_strips = A;
+    } else if (B >= A && B >= C) {
+        max_strips = B;
+    } else {
+        max_strips = C;
+    }
+    
+    // Calculate the sum of the other two colors
+    int other_sum = A + B + C - max_strips;
+    
+    // Check if it's possible to arrange the strips
+    if (max_strips > other_sum + 1) {
+        cout << "NO" << endl;
+    } else {
+        cout << "YES" << endl;
+    }
+
+    return 0;
+}
